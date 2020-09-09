@@ -3,24 +3,24 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
 })
 export class PostComponent implements OnInit {
-
   @Input() description: string;
   @Input() imageurl: string;
-  @Output() likesChanged: EventEmitter<number> = new EventEmitter<number>();
+  @Output() likesChanged: EventEmitter<object> = new EventEmitter<object>();
 
   likes: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   onClickLike() {
     this.likes++;
-    this.likesChanged.emit(this.likes);
+    this.likesChanged.emit({
+      description: this.description,
+      likes: this.likes,
+    });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

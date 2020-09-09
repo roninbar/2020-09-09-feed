@@ -34,7 +34,8 @@ export class FeedComponent implements OnInit {
 
   constructor() {}
 
-  onLikesChanged() {
+  onLikesChanged({ description, likes }) {
+    console.info(description, likes);
     this.totalLikes++;
   }
 
