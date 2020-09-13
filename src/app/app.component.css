@@ -1,3 +1,8 @@
+.feed-container {
+    display: flex;
+    justify-content: center;
+}
+
 app-feed {
     margin: 0 auto 3rem auto;
 }
