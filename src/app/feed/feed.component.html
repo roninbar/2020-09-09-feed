@@ -1,5 +1,9 @@
-<h3>Total Likes: {{totalLikes}}</h3>
+<!-- <h3>Total Likes: {{totalLikes}}</h3> -->
 Search: <input type="search" name="search" id="search" placeholder="Search" (keyup)="onKeyUpSearch($event)">
-<ng-container *ngFor="let post of posts">
-    <app-post *ngIf="post.description.toLowerCase().includes(searchTerm)" [description]="post.description" [imageurl]="post.imageUrl" (likesChanged)="onLikesChanged($event)"></app-post>
+<ng-container *ngFor="let post of posts; let i = index">
+    <app-post *ngIf="post.description.toLowerCase().includes(searchTerm)" [description]="post.description" [imageurl]="post.imageUrl"
+        (likesChanged)="onLikesChanged(i, $event)"></app-post>
 </ng-container>
+<highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor" [options]="chartOptions" [(update)]="updateFlag" [oneToOne]="oneToOneFlag"
+    [runOutsideAngular]="runOutsideAngularFlag" style="width: 100%; height: 400px; display: block;">
+</highcharts-chart>

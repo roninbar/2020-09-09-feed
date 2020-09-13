@@ -1,8 +1,4 @@
-.feed-container {
-    display: flex;
-    justify-content: center;
-}
-
 app-feed {
-    margin: 0 auto 3rem auto;
+    width: 100%;
+    padding: 10rem;
 }
